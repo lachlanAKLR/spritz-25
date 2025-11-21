@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import {
+  alpinaIta,
+  alpinaThin,
+  alpinaTyp,
+  egyptian,
+} from "./utils/customFonts";
+import { SanityLive } from "@/sanity/lib/live";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`text-bronze-1 bg-brown-1 antialiased ${egyptian.variable} ${alpinaThin.variable} ${alpinaIta.variable} ${alpinaTyp.variable}`}
       >
+        <Nav />
         {children}
+        <Footer />
+        <SanityLive />
       </body>
     </html>
   );
