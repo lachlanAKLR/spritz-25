@@ -5,7 +5,6 @@ import imageUrlBuilder from "@sanity/image-url";
 import { dataset, projectId } from "@/sanity/env";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import FadeInImage from "../utils/FadeInImage";
-import Image from "next/image";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
