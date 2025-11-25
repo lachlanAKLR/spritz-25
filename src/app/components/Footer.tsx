@@ -9,9 +9,19 @@ export default function Footer() {
   const isStudio = pathname.includes("/studio");
 
   return isStudio ? null : (
-    <footer className="p-5">
+    <footer className="p-3 md:p-5">
+      <div className="border-bronze-1 flex items-center justify-center border-t-2 p-5 md:hidden">
+        <Image
+          src="/LP25_Marque_Bronze_001.svg"
+          alt="Lore Perfumery Logo"
+          width={500}
+          height={80}
+          className="w-20"
+        />
+      </div>
+
       <div className="border-t-bronze-2 flex w-full justify-center border-t-2 py-12">
-        <div className="font-alpina-thin flex items-center gap-24 align-middle text-lg">
+        <div className="font-alpina-thin flex flex-col items-center gap-5 align-middle text-lg md:flex-row md:gap-24">
           <Link
             href="https://www.loreperfumery.com.au/about-us/"
             target="_blank"
@@ -26,7 +36,7 @@ export default function Footer() {
             alt="Lore Perfumery Logo"
             width={500}
             height={80}
-            className="w-20"
+            className="hidden w-20 md:block"
           />
           <Link href="https://www.loreperfumery.com.au/shop/" target="_blank">
             <p>Shop</p>

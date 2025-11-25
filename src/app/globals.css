@@ -57,6 +57,11 @@ a[href^="address"] {
 }
 
 @layer utilities {
+  .ordinal-suffix {
+    font-size: 70%;
+    position: relative;
+  }
+
   .site-grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -81,5 +86,27 @@ a[href^="address"] {
   .text-xl {
     font-size: var(--font-size-xl);
     line-height: var(--line-height-xl);
+  }
+
+  @media (min-width: 768px) {
+    .md\:text-sm {
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-sm);
+    }
+
+    .md\:text-base {
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+    }
+
+    .md\:text-lg {
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-lg);
+    }
+
+    .md\:text-xl {
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-xl);
+    }
   }
 }

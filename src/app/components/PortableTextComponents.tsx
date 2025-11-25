@@ -4,23 +4,27 @@ import Image from "next/image";
 export const portableTextComponents: Partial<PortableTextReactComponents> = {
   block: {
     normal: ({ children }) => (
-      <p className="font-alpina-thin pb-4 text-base">{children}</p>
+      <p className="font-alpina-thin pb-2 text-base md:pb-4">{children}</p>
     ),
 
     h1: ({ children }) => (
-      <h1 className="font-alpina-thin py-3 text-xl">{children}</h1>
+      <h1 className="font-alpina-thin py-3 text-lg md:text-xl">{children}</h1>
     ),
 
     h2: ({ children }) => (
-      <h2 className="font-alpina-thin py-3 text-lg">{children}</h2>
+      <h2 className="font-alpina-thin py-3 text-base md:text-lg">{children}</h2>
     ),
 
     h3: ({ children }) => (
-      <h3 className="font-egyptian text-base uppercase">{children}</h3>
+      <h3 className="font-egyptian text-sm uppercase md:text-base">
+        {children}
+      </h3>
     ),
 
     h4: ({ children }) => (
-      <h4 className="font-egyptian text-lg uppercase">{children}</h4>
+      <h4 className="font-egyptian text-base uppercase md:text-lg">
+        {children}
+      </h4>
     ),
 
     small: ({ children }) => <p className="">{children}</p>,

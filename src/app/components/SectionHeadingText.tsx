@@ -15,7 +15,7 @@ export default function SectionHeadingText({
   block: PageBuilderProps["pageBuilder"][number];
 }) {
   return (
-    <div className="relative h-screen w-screen">
+    <div className={`${block.image ? "h-screen" : "h-fit"} relative w-screen`}>
       {block.image ? (
         <FadeInImage
           src={builder
@@ -31,7 +31,9 @@ export default function SectionHeadingText({
         />
       ) : null}
 
-      <div className="absolute inset-0 flex flex-col pt-40 text-center">
+      <div
+        className={`${block.image ? "absolute inset-0" : "relative"} flex flex-col px-3 pt-20 text-center md:px-20 md:pt-40`}
+      >
         <PortableText
           value={block.heading}
           components={portableTextComponents}

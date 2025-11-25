@@ -18,9 +18,9 @@ export default function SectionTextImage({
 }) {
   return (
     <div
-      className={`${block.imageLeft ? "flex-row-reverse" : "flex-row"} flex gap-5 p-5`}
+      className={`${block.imageLeft ? "flex-col-reverse md:flex-row-reverse" : "flex-col-reverse md:flex-row"} flex gap-5 p-2.5`}
     >
-      <div className="flex w-1/2 flex-col items-center justify-center">
+      <div className="flex w-full flex-col items-center justify-center md:w-1/2">
         <div className="relative w-full">
           <Image
             src="/Background_Item_001.svg"
@@ -31,7 +31,7 @@ export default function SectionTextImage({
           />
 
           <div className="absolute inset-0 flex items-center justify-center text-center">
-            <div className="p-40">
+            <div className="px-5 py-10 sm:px-10 md:px-20 lg:px-32 xl:px-40">
               <PortableText
                 value={block.heading}
                 components={portableTextComponents}
@@ -66,7 +66,7 @@ export default function SectionTextImage({
           </div>
         </div>
       </div>
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         {block?.image && (
           <div
             className="w-full"

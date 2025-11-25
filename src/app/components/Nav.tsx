@@ -37,7 +37,7 @@ export default function Nav({
     <>
       <nav>
         <div
-          className={`${isSolid ? "bg-brown-1 border-bronze-1 border-b-2" : "border-brown-1"} fixed top-0 left-0 z-50 flex w-full items-center justify-between p-5 transition-colors duration-300 ease-in-out`}
+          className={`${isSolid ? "bg-brown-1 border-bronze-1 border-b-2" : "border-brown-1"} fixed top-0 left-0 z-50 flex w-full items-center justify-between p-3 transition-colors duration-300 ease-in-out md:p-5`}
         >
           <Link href="/">
             <Image
@@ -45,7 +45,7 @@ export default function Nav({
               alt="Lore Perfumery Logo"
               width={500}
               height={80}
-              className="w-56"
+              className="w-44 md:w-56"
             />
           </Link>
           <button className="flex cursor-pointer items-center gap-2 tracking-widest">
@@ -103,9 +103,9 @@ export default function Nav({
                   className="w-[300px]"
                 />
 
-                <span className="font-egyptian absolute inset-0 flex items-center justify-center text-sm uppercase">
+                <p className="font-egyptian absolute inset-0 flex items-center justify-center text-sm uppercase">
                   {item.course}
-                </span>
+                </p>
               </Link>
             ))}
           </div>

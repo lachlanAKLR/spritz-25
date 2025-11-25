@@ -1,4 +1,4 @@
-export default function toOrdinalJSX(n: number) {
+export default function toOrdinal(n: number) {
   const suffixes = ["th", "st", "nd", "rd"];
   const v = n % 100;
   const suffix = (suffixes[(v - 20) % 10] ||

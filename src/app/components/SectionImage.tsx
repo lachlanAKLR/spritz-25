@@ -15,7 +15,7 @@ export default function SectionHeadingText({
   block: PageBuilderProps["pageBuilder"][number];
 }) {
   return (
-    <div className="relative p-5">
+    <div className="relative h-fit p-5">
       {block.image ? (
         <FadeInImage
           src={builder
@@ -27,12 +27,12 @@ export default function SectionHeadingText({
           width={1000}
           height={2000}
           alt={block?.image?.alt ?? ""}
-          className="w-full"
+          className="hidden w-full md:block"
         />
       ) : null}
 
       {block?.text ? (
-        <div className="absolute inset-0 flex items-center justify-center p-10 text-center">
+        <div className="relative inset-0 flex items-center justify-center p-0 text-center md:absolute md:p-10">
           <div className="bg-bronze-1 border-brown-1 text-brown-1 h-fit w-fit border-5 p-5">
             <PortableText
               value={block.text}
