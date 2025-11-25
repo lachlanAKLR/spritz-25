@@ -13,6 +13,144 @@
  */
 
 // Source: schema.json
+export type FragranceType = {
+  _id: string;
+  _type: "fragranceType";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  course?: string;
+  title?: string;
+  brand?: string;
+  slug?: Slug;
+  intro?: BlockContent;
+  mainImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  videoFile?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  };
+  posterImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  info?: BlockContent;
+  productText?: BlockContent;
+  products?: Array<
+    {
+      _key: string;
+    } & Product
+  >;
+  bottomText?: string;
+  orderRank?: string;
+};
+
+export type BlockContent = Array<
+  | {
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote" | "small";
+      listItem?: "bullet";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }
+  | {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+      _key: string;
+    }
+  | {
+      id?: string;
+      _type: "break";
+      _key: string;
+    }
+>;
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
+export type Product = {
+  _type: "product";
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  size?: string;
+  link?: string;
+};
+
 export type TextImageBlock = {
   _type: "textImageBlock";
   heading?: BlockContent;
@@ -55,41 +193,6 @@ export type ImageBlock = {
   text?: BlockContent;
 };
 
-export type BlockContent = Array<
-  | {
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote" | "small";
-      listItem?: "bullet";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }
-  | {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      alt?: string;
-      _type: "image";
-      _key: string;
-    }
->;
-
 export type HeadingText = {
   _type: "headingText";
   heading?: BlockContent;
@@ -125,22 +228,6 @@ export type Home = {
         _key: string;
       } & TextImageBlock)
   >;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
 };
 
 export type SanityImagePaletteSwatch = {
@@ -239,20 +326,17 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
 export type AllSanitySchemaTypes =
-  | TextImageBlock
-  | ImageBlock
+  | FragranceType
   | BlockContent
-  | HeadingText
-  | Home
   | SanityImageCrop
   | SanityImageHotspot
+  | Slug
+  | Product
+  | TextImageBlock
+  | ImageBlock
+  | HeadingText
+  | Home
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
@@ -260,12 +344,11 @@ export type AllSanitySchemaTypes =
   | SanityFileAsset
   | SanityAssetSourceData
   | SanityImageAsset
-  | Geopoint
-  | Slug;
+  | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: HOME_QUERY
-// Query: *[_type == "home"][0]{    _id,    pageBuilder[]{      // --- Heading Text Block ---      _type == "headingText" => {        _type,        heading,        image{          alt,          asset->        }      },      // --- Image Block ---      _type == "imageBlock" => {        _type,        image{          alt,          asset->        },        text      },      // --- Text & Image Block ---      _type == "textImageBlock" => {        _type,        heading,        image{          alt,          asset->        },        ctaBlock[]{          text,          link        },        imageLeft      }    }  }
+// Query: *[_type == "home"][0]{    _id,    pageBuilder[]{      _type == "headingText" => {        _type,        heading,        image{          alt,          asset->        }      },      _type == "imageBlock" => {        _type,        image{          alt,          asset->        },        text      },      _type == "textImageBlock" => {        _type,        heading,        image{          alt,          asset->        },        ctaBlock[]{          text,          link        },        imageLeft      }    }  }
 export type HOME_QUERYResult = {
   _id: string;
   pageBuilder: Array<
@@ -363,11 +446,103 @@ export type HOME_QUERYResult = {
       }
   > | null;
 } | null;
+// Variable: FRAGRANCE_QUERY
+// Query: *[_type == "fragranceType" && slug.current == $slug][0]{    _id,    title,    brand,    course,    slug,    orderRank,    mainImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    videoFile{      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    posterImage{      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    intro,    info,    productText,    bottomText,    products[]{      _key,      size,      link,      image{        alt,        asset->{          _id,          url,          metadata { dimensions { width, height, aspectRatio } }        }      }    }  }
+export type FRAGRANCE_QUERYResult = {
+  _id: string;
+  title: string | null;
+  brand: string | null;
+  course: string | null;
+  slug: Slug | null;
+  orderRank: string | null;
+  mainImage: {
+    alt: string | null;
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        dimensions: {
+          width: number | null;
+          height: number | null;
+          aspectRatio: number | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+  videoFile: {
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: null;
+    } | null;
+  } | null;
+  posterImage: {
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        dimensions: {
+          width: number | null;
+          height: number | null;
+          aspectRatio: number | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+  intro: BlockContent | null;
+  info: BlockContent | null;
+  productText: BlockContent | null;
+  bottomText: string | null;
+  products: Array<{
+    _key: string;
+    size: string | null;
+    link: string | null;
+    image: {
+      alt: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+        metadata: {
+          dimensions: {
+            width: number | null;
+            height: number | null;
+            aspectRatio: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  }> | null;
+} | null;
+// Variable: FRAGRANCES_QUERY
+// Query: *[_type == "fragranceType" && defined(slug.current)] | order(orderRank) {    _id,    title,    brand,    course,    slug,    mainImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    }  }
+export type FRAGRANCES_QUERYResult = Array<{
+  _id: string;
+  title: string | null;
+  brand: string | null;
+  course: string | null;
+  slug: Slug | null;
+  mainImage: {
+    alt: string | null;
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        dimensions: {
+          width: number | null;
+          height: number | null;
+          aspectRatio: number | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '\n  *[_type == "home"][0]{\n    _id,\n    pageBuilder[]{\n      // --- Heading Text Block ---\n      _type == "headingText" => {\n        _type,\n        heading,\n        image{\n          alt,\n          asset->\n        }\n      },\n\n      // --- Image Block ---\n      _type == "imageBlock" => {\n        _type,\n        image{\n          alt,\n          asset->\n        },\n        text\n      },\n\n      // --- Text & Image Block ---\n      _type == "textImageBlock" => {\n        _type,\n        heading,\n        image{\n          alt,\n          asset->\n        },\n        ctaBlock[]{\n          text,\n          link\n        },\n        imageLeft\n      }\n    }\n  }\n': HOME_QUERYResult;
+    '\n  *[_type == "home"][0]{\n    _id,\n    pageBuilder[]{\n      _type == "headingText" => {\n        _type,\n        heading,\n        image{\n          alt,\n          asset->\n        }\n      },\n\n      _type == "imageBlock" => {\n        _type,\n        image{\n          alt,\n          asset->\n        },\n        text\n      },\n\n      _type == "textImageBlock" => {\n        _type,\n        heading,\n        image{\n          alt,\n          asset->\n        },\n        ctaBlock[]{\n          text,\n          link\n        },\n        imageLeft\n      }\n    }\n  }\n': HOME_QUERYResult;
+    '\n  *[_type == "fragranceType" && slug.current == $slug][0]{\n    _id,\n    title,\n    brand,\n    course,\n    slug,\n    orderRank,\n\n    mainImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    videoFile{\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    posterImage{\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    intro,\n    info,\n    productText,\n    bottomText,\n\n    products[]{\n      _key,\n      size,\n      link,\n      image{\n        alt,\n        asset->{\n          _id,\n          url,\n          metadata { dimensions { width, height, aspectRatio } }\n        }\n      }\n    }\n  }\n': FRAGRANCE_QUERYResult;
+    '\n  *[_type == "fragranceType" && defined(slug.current)] | order(orderRank) {\n    _id,\n    title,\n    brand,\n    course,\n    slug,\n    mainImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    }\n  }\n': FRAGRANCES_QUERYResult;
   }
 }

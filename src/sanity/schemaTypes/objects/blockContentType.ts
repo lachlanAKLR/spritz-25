@@ -57,5 +57,23 @@ export const blockContentType = defineType({
         },
       ],
     }),
+
+    defineArrayMember({
+      name: "break",
+      type: "object",
+      title: "Horizontal Break",
+      fields: [
+        {
+          name: "id",
+          type: "string",
+          hidden: true,
+        },
+      ],
+      preview: {
+        prepare() {
+          return { title: "***" };
+        },
+      },
+    }),
   ],
 });

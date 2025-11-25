@@ -1,21 +1,22 @@
 import { PortableTextReactComponents } from "@portabletext/react";
+import Image from "next/image";
 
 export const portableTextComponents: Partial<PortableTextReactComponents> = {
   block: {
     normal: ({ children }) => (
-      <p className="font-alpina-thin p-2 text-base">{children}</p>
+      <p className="font-alpina-thin pb-4 text-base">{children}</p>
     ),
 
     h1: ({ children }) => (
-      <h1 className="font-alpina-thin pb-3 text-xl">{children}</h1>
+      <h1 className="font-alpina-thin py-3 text-xl">{children}</h1>
     ),
 
     h2: ({ children }) => (
-      <h2 className="font-alpina-thin pb-3 text-lg">{children}</h2>
+      <h2 className="font-alpina-thin py-3 text-lg">{children}</h2>
     ),
 
     h3: ({ children }) => (
-      <h3 className="font-egyptian pb-3 text-base uppercase">{children}</h3>
+      <h3 className="font-egyptian text-base uppercase">{children}</h3>
     ),
 
     h4: ({ children }) => (
@@ -23,6 +24,19 @@ export const portableTextComponents: Partial<PortableTextReactComponents> = {
     ),
 
     small: ({ children }) => <p className="">{children}</p>,
+  },
+
+  types: {
+    break: () => (
+      <div className="my-6 flex w-full justify-center">
+        <Image
+          src="/Asterisk_Group_001.svg"
+          alt="Horizontal Break"
+          width={50}
+          height={50}
+        />
+      </div>
+    ),
   },
 
   marks: {
