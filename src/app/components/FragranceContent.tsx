@@ -21,7 +21,7 @@ export default function FragranceContent({
             </div>
           )}
         </div>
-        <div className="w-2/3 p-40 text-center">
+        <div className="border-bronze-1 flex w-2/3 flex-col items-center justify-center border-2 px-10 text-center sm:px-20 md:px-40 lg:px-40 xl:px-60">
           {fragrance?.info && (
             <PortableText
               value={fragrance?.info}

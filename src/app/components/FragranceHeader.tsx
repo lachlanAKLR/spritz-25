@@ -20,7 +20,10 @@ export default function FragranceHeader({
 
   return (
     <section>
-      <div className="flex w-full gap-4 p-4">
+      <div className="font-egyptian fixed top-4 left-1/2 z-60 -translate-x-1/2 text-base uppercase">
+        {ordinal} Course
+      </div>
+      <div className="flex w-full gap-4 p-4 pt-16">
         <div className="flex w-1/2 flex-col items-center justify-center">
           <div className="relative w-full">
             <Image
@@ -50,20 +53,32 @@ export default function FragranceHeader({
           </div>
         </div>
         <div className="w-1/2">
-          {fragrance?.mainImage ? (
-            <FadeInImage
-              src={builder
-                .image(fragrance?.mainImage?.asset as SanityImageSource)
-                .width(3000)
-                .fit("max")
-                .auto("format")
-                .url()}
-              width={1000}
-              height={2000}
-              alt={fragrance?.mainImage?.alt ?? ""}
+          {fragrance?.mainImage && (
+            <div
               className="w-full"
-            />
-          ) : null}
+              style={{
+                WebkitMaskImage: "url('/Background_Item_002.svg')",
+                maskImage: "url('/Background_Item_002.svg')",
+                WebkitMaskRepeat: "no-repeat",
+                maskRepeat: "no-repeat",
+                WebkitMaskSize: "100% 100%",
+                maskSize: "100% 100%",
+              }}
+            >
+              <FadeInImage
+                src={builder
+                  .image(fragrance.mainImage.asset as SanityImageSource)
+                  .width(3000)
+                  .fit("max")
+                  .auto("format")
+                  .url()}
+                width={1000}
+                height={2000}
+                alt={fragrance.mainImage.alt ?? ""}
+                className="aspect-[1/1.249] w-full"
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -9,6 +9,21 @@ import FadeInImage from "../utils/FadeInImage";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
+const productLayouts: Record<number, Record<number, string>> = {
+  1: {
+    0: "col-start-5 col-end-9",
+  },
+  2: {
+    0: "col-start-3 col-end-7",
+    1: "col-start-7 col-end-11",
+  },
+  3: {
+    0: "col-start-1 col-end-5",
+    1: "col-start-5 col-end-9",
+    2: "col-start-9 col-end-13",
+  },
+};
+
 export default function FragranceProduct({
   fragrance,
 }: {
@@ -16,8 +31,8 @@ export default function FragranceProduct({
 }) {
   return (
     <section>
-      <div className="px-5 pt-48">
-        <div className="text-center">
+      <div className="px-5 pt-48 pb-40">
+        <div className="pb-10 text-center">
           {fragrance?.productText && (
             <PortableText
               value={fragrance?.productText}
@@ -28,8 +43,14 @@ export default function FragranceProduct({
         {fragrance?.products ? (
           <div className="site-grid">
             {fragrance?.products?.map((product, index) => {
+              const count = fragrance?.products?.length;
+
+              const layoutClass =
+                //@ts-expect-error: error
+                productLayouts[count]?.[index] || "col-start-1 col-end-13";
+
               return (
-                <div key={index} className="border-bronze-1 border-2">
+                <div key={index} className={`${layoutClass}`}>
                   {product?.image ? (
                     <FadeInImage
                       src={builder
@@ -41,9 +62,26 @@ export default function FragranceProduct({
                       width={1000}
                       height={2000}
                       alt={product?.image?.alt ?? ""}
-                      className="w-full"
+                      className="border-bronze-1 w-full border-2"
                     />
                   ) : null}
+                  <div className="flex">
+                    <div className="border-bronze-1 w-2/3 border-r-2 border-b-2 border-l-2 p-3">
+                      <p className="font-egyptian text-lg uppercase">
+                        {product.size}
+                      </p>
+                    </div>
+                    <div className="border-bronze-1 flex w-1/3 flex-col items-center justify-center border-r-2 border-b-2 p-2 text-center">
+                      <Link //@ts-expect-error: error
+                        href={product?.link}
+                        target="_blank"
+                      >
+                        <p className="font-egyptian text-base uppercase">
+                          Buy Now
+                        </p>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               );
             })}

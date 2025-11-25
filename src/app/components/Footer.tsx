@@ -10,7 +10,7 @@ export default function Footer() {
 
   return isStudio ? null : (
     <footer className="p-5">
-      <div className="border-t-bronze-1 flex w-full justify-center border-t py-12">
+      <div className="border-t-bronze-2 flex w-full justify-center border-t-2 py-12">
         <div className="font-alpina-thin flex items-center gap-24 align-middle text-lg">
           <Link
             href="https://www.loreperfumery.com.au/about-us/"
@@ -36,7 +36,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <div className="border-t-bronze-1 border-t py-6">
+      <div className="border-t-bronze-1 border-t-2 py-6">
         <p className="font-alpina-typewriter text-center text-xs uppercase">
           Lore Perfumery acknowledges the Traditional Owners and true sovereigns
           of the land we operate on, the Wurundjeri Woi Wurrung peoples of the
@@ -47,7 +47,7 @@ export default function Footer() {
           Nation.
         </p>
       </div>
-      <div className="border-t-bronze-1 w-full border-t pt-12">
+      <div className="border-t-bronze-1 w-full border-t-2 pt-12">
         <Image
           src="/LP25_Logo_Bronze_001.svg"
           alt="Lore Perfumery Logo"

@@ -67,20 +67,32 @@ export default function SectionTextImage({
         </div>
       </div>
       <div className="w-1/2">
-        {block.image ? (
-          <FadeInImage
-            src={builder
-              .image(block?.image?.asset as SanityImageSource)
-              .width(3000)
-              .fit("max")
-              .auto("format")
-              .url()}
-            width={1000}
-            height={2000}
-            alt={block?.image?.alt ?? ""}
+        {block?.image && (
+          <div
             className="w-full"
-          />
-        ) : null}
+            style={{
+              WebkitMaskImage: "url('/Background_Item_002.svg')",
+              maskImage: "url('/Background_Item_002.svg')",
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskSize: "100% 100%",
+              maskSize: "100% 100%",
+            }}
+          >
+            <FadeInImage
+              src={builder
+                .image(block.image.asset as SanityImageSource)
+                .width(3000)
+                .fit("max")
+                .auto("format")
+                .url()}
+              width={1000}
+              height={2000}
+              alt={block.image.alt ?? ""}
+              className="aspect-[1/1.249] w-full"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
