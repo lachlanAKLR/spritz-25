@@ -1,4 +1,5 @@
 import { HOME_QUERYResult } from "../../../sanity.types";
+import { Reveal } from "./Reveal";
 import SectionHeadingText from "./SectionHeadingText";
 import SectionImage from "./SectionImage";
 import SectionTextImage from "./SectionTextImage";
@@ -20,7 +21,9 @@ export default function PageBuilder({ pageBuilder }: PageBuilderProps) {
             if (block.heading) {
               return (
                 <section key={index}>
-                  <SectionHeadingText block={block} />
+                  <Reveal>
+                    <SectionHeadingText block={block} />
+                  </Reveal>
                 </section>
               );
             }
@@ -30,7 +33,9 @@ export default function PageBuilder({ pageBuilder }: PageBuilderProps) {
             if (block.image) {
               return (
                 <section key={index}>
-                  <SectionImage block={block} />
+                  <Reveal>
+                    <SectionImage block={block} />
+                  </Reveal>
                 </section>
               );
             }
@@ -40,7 +45,9 @@ export default function PageBuilder({ pageBuilder }: PageBuilderProps) {
             if (block.ctaBlock) {
               return (
                 <section key={index}>
-                  <SectionTextImage block={block} />
+                  <Reveal>
+                    <SectionTextImage block={block} />
+                  </Reveal>
                 </section>
               );
             }

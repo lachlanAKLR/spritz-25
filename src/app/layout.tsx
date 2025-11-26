@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import { FRAGRANCES_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
+import { Reveal } from "./components/Reveal";
 
 export const metadata: Metadata = {
   title: "Spritzmas™ 2025 — Lore Perfumery",
@@ -32,7 +33,9 @@ export default async function RootLayout({
       >
         <Nav fragrances={fragrances} />
         {children}
-        <Footer />
+        <Reveal>
+          <Footer />
+        </Reveal>
         <SanityLive />
       </body>
     </html>

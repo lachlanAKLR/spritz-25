@@ -4,6 +4,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import PageBuilder from "./components/PageBuilder";
 import { client } from "@/sanity/lib/client";
 import SectionLinks from "./components/SectionLinks";
+import { Reveal } from "./components/Reveal";
 
 export default async function Page() {
   const { data }: { data: HOME_QUERYResult } = await sanityFetch({
@@ -18,7 +19,9 @@ export default async function Page() {
   return (
     <main>
       <PageBuilder pageBuilder={pageBuilder} />
-      <SectionLinks linkData={linkData} />
+      <Reveal>
+        <SectionLinks linkData={linkData} />
+      </Reveal>
     </main>
   );
 }
