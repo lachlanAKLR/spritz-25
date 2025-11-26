@@ -31,13 +31,13 @@ export default function SectionTextImage({
           />
 
           <div className="absolute inset-0 flex items-center justify-center text-center">
-            <div className="px-5 py-10 sm:px-10 md:px-20 lg:px-32 xl:px-40">
+            <div className="px-5 py-10 sm:px-10 md:px-12 lg:px-16 xl:px-32">
               <PortableText
                 value={block.heading}
                 components={portableTextComponents}
               />
               {block?.ctaBlock ? (
-                <div className="flex flex-col items-center justify-center gap-5 pt-5">
+                <div className="flex flex-col items-center justify-center gap-3 pt-5 md:gap-5">
                   {block?.ctaBlock.map(
                     //@ts-expect-error: error
                     (item) => (
@@ -86,7 +86,7 @@ export default function SectionTextImage({
                 .fit("max")
                 .auto("format")
                 .url()}
-              width={1000}
+              width={2000}
               height={2000}
               alt={block.image.alt ?? ""}
               className="aspect-[1/1.249] w-full"

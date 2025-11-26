@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FRAGRANCES_QUERYResult } from "../../../sanity.types";
+import toOrdinal from "../utils/toOrdinal";
 
 export default function Nav({
   fragrances,
@@ -68,7 +69,7 @@ export default function Nav({
 
       <nav>
         <div
-          className={`${open ? "right-0" : "-right-96"} bg-brown-1 border-bronze-1 fixed z-30 flex min-h-screen w-96 flex-col items-center justify-between border-l-2 pt-20 pb-5 transition-all duration-500 ease-in-out`}
+          className={`${open ? "right-0" : "-right-96"} bg-brown-1 border-bronze-1 fixed z-30 flex min-h-screen w-full flex-col items-center justify-between border-l-0 pt-20 pb-5 transition-all duration-500 ease-in-out md:w-96 md:border-l-2`}
         >
           <div className="flex flex-col gap-4">
             <Link
@@ -103,9 +104,12 @@ export default function Nav({
                   className="w-[300px]"
                 />
 
-                <p className="font-egyptian absolute inset-0 flex items-center justify-center text-sm uppercase">
-                  {item.course}
-                </p>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <p className="font-egyptian text-sm uppercase">
+                    {toOrdinal(index + 1)}
+                    <span className="pl-1">Course</span>
+                  </p>
+                </div>
               </Link>
             ))}
           </div>

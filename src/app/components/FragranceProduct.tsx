@@ -31,7 +31,7 @@ export default function FragranceProduct({
 }) {
   return (
     <section>
-      <div className="px-5 pt-48 pb-40">
+      <div className="px-3 pt-20 pb-20 md:px-5 md:pt-48 md:pb-40">
         <div className="pb-10 text-center">
           {fragrance?.productText && (
             <PortableText
@@ -41,7 +41,7 @@ export default function FragranceProduct({
           )}
         </div>
         {fragrance?.products ? (
-          <div className="site-grid">
+          <div className="md:site-grid flex flex-col gap-5">
             {fragrance?.products?.map((product, index) => {
               const count = fragrance?.products?.length;
 
@@ -67,7 +67,7 @@ export default function FragranceProduct({
                   ) : null}
                   <div className="flex">
                     <div className="border-bronze-1 w-2/3 border-r-2 border-b-2 border-l-2 p-3">
-                      <p className="font-egyptian text-lg uppercase">
+                      <p className="font-egyptian text-base uppercase md:text-lg">
                         {product.size}
                       </p>
                     </div>
@@ -76,7 +76,7 @@ export default function FragranceProduct({
                         href={product?.link}
                         target="_blank"
                       >
-                        <p className="font-egyptian text-base uppercase">
+                        <p className="font-egyptian text-sm uppercase md:text-base">
                           Buy Now
                         </p>
                       </Link>

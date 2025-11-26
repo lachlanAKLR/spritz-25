@@ -10,7 +10,7 @@ export default function FrangranceIntro({
   return (
     <section>
       {fragrance?.intro && (
-        <div className="px-20 py-36 text-center">
+        <div className="px-5 py-16 text-center md:px-20 md:py-36">
           <h2 className="font-egyptian pb-2.5 text-base uppercase">
             {fragrance?.course}
           </h2>

@@ -89,6 +89,12 @@ a[href^="address"] {
   }
 
   @media (min-width: 768px) {
+    .md\:site-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 20px;
+    }
+
     .md\:text-sm {
       font-size: var(--font-size-sm);
       line-height: var(--line-height-sm);

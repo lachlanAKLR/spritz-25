@@ -9,8 +9,8 @@ export default function FragranceContent({
 }) {
   return (
     <section>
-      <div className="flex gap-5 p-5">
-        <div className="w-1/3">
+      <div className="flex flex-col gap-5 p-3 md:flex-row md:p-5">
+        <div className="w-full md:w-1/3">
           {fragrance?.videoFile?.asset?.url && (
             <div className="w-fit">
               <video
@@ -21,7 +21,7 @@ export default function FragranceContent({
             </div>
           )}
         </div>
-        <div className="border-bronze-1 flex w-2/3 flex-col items-center justify-center border-2 px-10 py-10 text-center sm:px-20 md:px-40 lg:px-40 xl:px-60">
+        <div className="border-bronze-1 flex w-full flex-col items-center justify-center border-2 px-5 py-10 text-center sm:px-10 md:w-2/3 md:px-20 lg:px-32 xl:px-40">
           {fragrance?.info && (
             <PortableText
               value={fragrance?.info}

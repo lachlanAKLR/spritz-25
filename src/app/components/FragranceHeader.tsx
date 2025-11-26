@@ -20,11 +20,11 @@ export default function FragranceHeader({
 
   return (
     <section>
-      <div className="font-egyptian fixed top-4 left-1/2 z-60 -translate-x-1/2 text-base uppercase">
+      <div className="font-egyptian fixed top-4 left-1/2 z-60 hidden -translate-x-1/2 text-base uppercase md:block">
         {ordinal} Course
       </div>
-      <div className="flex w-full gap-4 p-4 pt-16">
-        <div className="flex w-1/2 flex-col items-center justify-center">
+      <div className="flex w-full flex-col gap-4 p-3 pt-12 md:flex-row md:p-5 md:pt-16">
+        <div className="flex w-full flex-col items-center justify-center md:w-1/2">
           <div className="relative w-full">
             <Image
               src="/Background_Item_001.svg"
@@ -35,24 +35,24 @@ export default function FragranceHeader({
             />
 
             <div className="absolute inset-0 flex items-center justify-center text-center">
-              <div className="p-40">
-                <p className="font-egyptian pb-2.5 text-base uppercase">
+              <div className="p-5 md:p-10">
+                <p className="font-egyptian pb-2.5 text-sm uppercase md:text-base">
                   {ordinal}
                 </p>
-                <h2 className="font-egyptian pb-2.5 text-lg uppercase">
+                <h2 className="font-egyptian pb-2.5 text-base uppercase md:text-lg">
                   {fragrance?.course}
                 </h2>
                 <h1 className="font-alpina-italic pb-2.5 text-xl">
                   {fragrance?.title}
                 </h1>
-                <h3 className="font-egyptian text-base uppercase">
+                <h3 className="font-egyptian text-sm uppercase md:text-base">
                   {fragrance?.brand}
                 </h3>
               </div>
             </div>
           </div>
         </div>
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2">
           {fragrance?.mainImage && (
             <div
               className="w-full"

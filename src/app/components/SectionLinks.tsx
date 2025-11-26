@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { FRAGRANCES_QUERYResult } from "../../../sanity.types";
 import Image from "next/image";
-import toOrdinalJSX from "../utils/toOrdinal";
 import toOrdinal from "../utils/toOrdinal";
+import imageUrlBuilder from "@sanity/image-url";
+import { dataset, projectId } from "@/sanity/env";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
+const builder = imageUrlBuilder({ projectId, dataset });
 
 export default function SectionLinks({
   linkData,
@@ -11,13 +15,13 @@ export default function SectionLinks({
 }) {
   return (
     <section>
-      <div className="site-grid pt-24 pb-36">
+      <div className="site-grid pt-12 pb-20 md:pt-24 md:pb-36">
         <div className="col-start-2 col-end-12 flex w-full flex-wrap justify-center gap-5">
           {linkData?.map((item, index) => (
             <Link
               key={`nav ${index}`}
               href={`/fragrance/${item.slug?.current}`}
-              className="relative block w-[48%]"
+              className="group relative block w-full md:w-[48%]"
             >
               <Image
                 src="/Button_Box_002.svg"
@@ -27,9 +31,36 @@ export default function SectionLinks({
                 className="w-full"
               />
               <div className="font-egyptian absolute inset-0 flex flex-col items-center justify-center uppercase">
-                <p className="text-base">{toOrdinal(index + 1)}</p>
-                <p className="text-lg">{item.course}</p>
+                <p className="text-sm md:text-base">{toOrdinal(index + 1)}</p>
+                <p className="text-base md:text-lg">{item.course}</p>
               </div>
+
+              {item.mainImage ? (
+                <div
+                  className="group-hover absolute top-0 left-0 z-20 hidden h-full w-full opacity-0 duration-500 ease-in-out hover:opacity-100 md:block"
+                  style={{
+                    WebkitMaskImage: "url('/Button_Box_003.svg')",
+                    maskImage: "url('/Button_Box_003.svg')",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskSize: "100% 100%",
+                    maskSize: "100% 100%",
+                  }}
+                >
+                  <Image
+                    src={builder
+                      .image(item.mainImage.asset as SanityImageSource)
+                      .width(3000)
+                      .fit("max")
+                      .auto("format")
+                      .url()}
+                    width={3000}
+                    height={3000}
+                    alt={item.mainImage.alt ?? ""}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+              ) : null}
             </Link>
           ))}
         </div>

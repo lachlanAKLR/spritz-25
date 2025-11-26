@@ -20,12 +20,12 @@ export default function SectionHeadingText({
         <FadeInImage
           src={builder
             .image(block?.image?.asset as SanityImageSource)
-            .width(2000)
+            .width(3000)
             .fit("max")
             .auto("format")
             .url()}
-          width={1000}
-          height={2000}
+          width={3000}
+          height={3000}
           alt={block?.image?.alt ?? ""}
           className="absolute inset-0 h-full w-full object-cover"
         />
