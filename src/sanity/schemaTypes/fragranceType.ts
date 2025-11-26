@@ -81,13 +81,13 @@ export const fragranceType = defineType({
   preview: {
     select: {
       title: "title",
-      brand: "brand",
+      course: "course",
       media: "mainImage",
     },
-    prepare({ title, brand, media }) {
+    prepare({ title, course, media }) {
       return {
         title: `${title}`,
-        subtitle: brand,
+        subtitle: course,
         media,
       };
     },

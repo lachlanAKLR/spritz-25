@@ -1,5 +1,6 @@
 import { defineType, defineArrayMember } from "sanity";
 import { ImageIcon } from "@sanity/icons";
+import { EllipsisHorizontalIcon } from "@sanity/icons";
 
 export const blockContentType = defineType({
   title: "Block Content",
@@ -62,16 +63,13 @@ export const blockContentType = defineType({
       name: "break",
       type: "object",
       title: "Horizontal Break",
-      fields: [
-        {
-          name: "id",
-          type: "string",
-          hidden: true,
-        },
-      ],
+      fields: [{ name: "id", type: "string", hidden: true }],
       preview: {
         prepare() {
-          return { title: "***" };
+          return {
+            title: "Horizontal Break",
+            media: EllipsisHorizontalIcon,
+          };
         },
       },
     }),

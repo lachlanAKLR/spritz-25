@@ -32,7 +32,7 @@ export default function SectionHeadingText({
       ) : null}
 
       <div
-        className={`${block.image ? "absolute inset-0" : "relative"} flex flex-col px-3 pt-20 text-center md:px-20 md:pt-40`}
+        className={`${block.image ? "absolute inset-0" : "relative"} flex flex-col px-7 pt-24 text-center md:px-20 md:pt-40`}
       >
         <PortableText
           value={block.heading}

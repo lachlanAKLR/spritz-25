@@ -32,7 +32,7 @@ export default function SectionHeadingText({
       ) : null}
 
       {block?.text ? (
-        <div className="absolute inset-0 top-10 flex items-center justify-center p-10 text-center md:absolute md:top-0 md:p-10">
+        <div className="absolute inset-0 flex items-center justify-center p-10 text-center md:absolute md:top-0 md:p-10">
           <div className="bg-brown-1 border-bronze-1 text-bronze-1 h-fit w-fit border-2 p-5 md:border-5">
             <PortableText
               value={block.text}
