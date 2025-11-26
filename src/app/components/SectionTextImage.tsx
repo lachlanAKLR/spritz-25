@@ -44,7 +44,7 @@ export default function SectionTextImage({
                       <Link
                         key={item.link}
                         href={item.link}
-                        className="relative block w-fit"
+                        className="group relative block w-fit"
                       >
                         <Image
                           src="/Button_Box.svg"
@@ -53,8 +53,15 @@ export default function SectionTextImage({
                           height={80}
                           className="w-[300px]"
                         />
+                        <Image
+                          src="/Button_Box_Fill.svg"
+                          alt="Button Box"
+                          width={500}
+                          height={80}
+                          className="absolute top-0 left-0 hidden w-[300px] opacity-0 duration-500 ease-in-out group-hover:opacity-100 md:block"
+                        />
 
-                        <span className="font-egyptian absolute inset-0 flex items-center justify-center text-sm uppercase">
+                        <span className="text-bronze-1 group-hover:text-brown-1 font-egyptian absolute inset-0 flex items-center justify-center text-sm uppercase duration-500 ease-in-out">
                           {item.text}
                         </span>
                       </Link>

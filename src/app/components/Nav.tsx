@@ -75,7 +75,7 @@ export default function Nav({
             <Link
               onClick={handleClick}
               href="/"
-              className="relative block w-fit"
+              className="group relative block w-fit"
             >
               <Image
                 src="/Button_Box.svg"
@@ -84,17 +84,26 @@ export default function Nav({
                 height={80}
                 className="w-[300px]"
               />
+              <Image
+                src="/Button_Box_Fill.svg"
+                alt="Button Box"
+                width={500}
+                height={80}
+                className="absolute top-0 left-0 hidden w-[300px] opacity-0 duration-500 ease-in-out group-hover:opacity-100 md:block"
+              />
 
-              <span className="font-egyptian absolute inset-0 flex items-center justify-center text-sm uppercase">
-                Homepage
-              </span>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <p className="group-hover:text-brown-1 text-bronze-1 font-egyptian text-sm uppercase duration-500 ease-in-out">
+                  Homepage
+                </p>
+              </div>
             </Link>
             {fragrances?.map((item, index) => (
               <Link
                 onClick={handleClick}
                 key={`nav ${index}`}
                 href={`/fragrance/${item.slug?.current}`}
-                className="relative block w-fit"
+                className="group relative block w-fit"
               >
                 <Image
                   src="/Button_Box.svg"
@@ -103,9 +112,16 @@ export default function Nav({
                   height={80}
                   className="w-[300px]"
                 />
+                <Image
+                  src="/Button_Box_Fill.svg"
+                  alt="Button Box"
+                  width={500}
+                  height={80}
+                  className="absolute top-0 left-0 hidden w-[300px] opacity-0 duration-500 ease-in-out group-hover:opacity-100 md:block"
+                />
 
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="font-egyptian text-sm uppercase">
+                  <p className="group-hover:text-brown-1 text-bronze-1 font-egyptian text-sm uppercase duration-500 ease-in-out">
                     {toOrdinal(index + 1)}
                     <span className="pl-1">Course</span>
                   </p>

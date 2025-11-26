@@ -16,7 +16,7 @@ export default function Footer() {
           alt="Lore Perfumery Logo"
           width={500}
           height={80}
-          className="w-20"
+          className="w-16"
         />
       </div>
 
