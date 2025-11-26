@@ -66,12 +66,12 @@ export default function FragranceProduct({
                     />
                   ) : null}
                   <div className="flex">
-                    <div className="border-bronze-1 w-2/3 border-r-2 border-b-2 border-l-2 p-3">
+                    <div className="border-bronze-1 w-2/3 border-r-2 border-b-2 border-l-2 p-3 pl-4">
                       <p className="font-egyptian text-base uppercase md:text-lg">
                         {product.size}
                       </p>
                     </div>
-                    <div className="border-bronze-1 flex w-1/3 flex-col items-center justify-center border-r-2 border-b-2 p-2 text-center">
+                    <div className="border-bronze-1 hover:bg-bronze-1 hover:text-brown-1 text-bronze-1 flex w-1/3 cursor-pointer flex-col items-center justify-center border-r-2 border-b-2 p-2 text-center transition-all duration-500 ease-in-out">
                       <Link //@ts-expect-error: error
                         href={product?.link}
                         target="_blank"
