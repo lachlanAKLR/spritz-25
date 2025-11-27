@@ -3,7 +3,6 @@ import { dataset, projectId } from "@/sanity/env";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import FadeInImage from "../utils/FadeInImage";
 import Image from "next/image";
-import Link from "next/link";
 import { FRAGRANCE_QUERYResult } from "../../../sanity.types";
 import toOrdinal from "../utils/toOrdinal";
 
@@ -75,7 +74,7 @@ export default function FragranceHeader({
                 width={1000}
                 height={2000}
                 alt={fragrance.mainImage.alt ?? ""}
-                className="aspect-[1/1.249] w-full"
+                className="aspect-[1/1.249] w-full object-cover"
               />
             </div>
           )}
