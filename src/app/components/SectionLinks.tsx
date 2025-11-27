@@ -35,7 +35,7 @@ export default function SectionLinks({
                 <p className="text-base md:text-lg">{item.course}</p>
               </div>
 
-              {item.courseImage ? (
+              {item.linkImage ? (
                 <div
                   className="group-hover absolute top-0 left-0 z-20 hidden h-full w-full opacity-0 duration-500 ease-in-out hover:opacity-100 md:block"
                   style={{
@@ -49,14 +49,14 @@ export default function SectionLinks({
                 >
                   <Image
                     src={builder
-                      .image(item.courseImage.asset as SanityImageSource)
+                      .image(item.linkImage.asset as SanityImageSource)
                       .width(3000)
                       .fit("max")
                       .auto("format")
                       .url()}
                     width={3000}
                     height={3000}
-                    alt={item.courseImage.alt ?? ""}
+                    alt={item.linkImage.alt ?? ""}
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>

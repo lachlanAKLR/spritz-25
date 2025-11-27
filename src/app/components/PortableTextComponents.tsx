@@ -16,7 +16,7 @@ export const portableTextComponents: Partial<PortableTextReactComponents> = {
     ),
 
     h3: ({ children }) => (
-      <h3 className="font-egyptian text-sm uppercase md:text-base">
+      <h3 className="font-egyptian pb-2 text-sm uppercase md:text-base">
         {children}
       </h3>
     ),

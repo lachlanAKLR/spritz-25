@@ -129,7 +129,7 @@ export const FRAGRANCES_QUERY = defineQuery(`
       }
     },
 
-    courseImage{
+    linkImage{
       alt,
       asset->{
         _id,
