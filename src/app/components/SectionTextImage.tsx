@@ -16,6 +16,8 @@ export default function SectionTextImage({
   //@ts-expect-error: error
   block: PageBuilderProps["pageBuilder"][number];
 }) {
+  const hasSixOrMore = (block.heading?.length ?? 0) >= 6;
+
   return (
     <div
       className={`${block.imageLeft ? "flex-col-reverse md:flex-row-reverse" : "flex-col-reverse md:flex-row"} flex gap-5 px-3 py-2.5 md:px-5`}
@@ -27,14 +29,14 @@ export default function SectionTextImage({
             alt="Background Box"
             width={500}
             height={80}
-            className="hidden w-full md:block"
+            className={`${hasSixOrMore ? "hidden md:block" : "block md:block"} w-full`}
           />
           <Image
             src="/Background_Item_Mobile_001.svg"
             alt="Background Box"
             width={500}
             height={80}
-            className="block w-full md:hidden"
+            className={`${hasSixOrMore ? "block md:hidden" : "hidden md:hidden"} w-full`}
           />
           <div className="absolute inset-0 mb-0 flex items-center justify-center overflow-scroll text-center sm:mb-10 sm:items-start md:mb-0 md:items-start lg:items-center">
             <div className="px-5 py-10 sm:px-10 md:px-8 lg:px-8 xl:px-24">
