@@ -59,7 +59,7 @@ export default function FragranceNext({
               </p>
             </div>
 
-            {prevFragrance?.mainImage ? (
+            {prevFragrance?.courseImage ? (
               <div
                 className="group-hover absolute top-0 left-0 z-20 h-full w-full opacity-0 duration-500 ease-in-out hover:opacity-100"
                 style={{
@@ -73,14 +73,14 @@ export default function FragranceNext({
               >
                 <Image
                   src={builder
-                    .image(prevFragrance.mainImage.asset as SanityImageSource)
+                    .image(prevFragrance.courseImage.asset as SanityImageSource)
                     .width(3000)
                     .fit("max")
                     .auto("format")
                     .url()}
                   width={3000}
                   height={3000}
-                  alt={prevFragrance.mainImage.alt ?? ""}
+                  alt={prevFragrance.courseImage.alt ?? ""}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
@@ -113,7 +113,7 @@ export default function FragranceNext({
               </p>
             </div>
 
-            {nextFragrance?.mainImage ? (
+            {nextFragrance?.courseImage ? (
               <div
                 className="group-hover absolute top-0 left-0 z-20 hidden h-full w-full opacity-0 duration-500 ease-in-out hover:opacity-100 md:block"
                 style={{
@@ -127,14 +127,14 @@ export default function FragranceNext({
               >
                 <Image
                   src={builder
-                    .image(nextFragrance.mainImage.asset as SanityImageSource)
+                    .image(nextFragrance.courseImage.asset as SanityImageSource)
                     .width(3000)
                     .fit("max")
                     .auto("format")
                     .url()}
                   width={3000}
                   height={3000}
-                  alt={nextFragrance.mainImage.alt ?? ""}
+                  alt={nextFragrance.courseImage.alt ?? ""}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>

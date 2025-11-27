@@ -26,10 +26,7 @@ export const fragranceType = defineType({
         source: "title",
       },
     }),
-    defineField({
-      name: "intro",
-      type: "blockContent",
-    }),
+
     defineField({
       name: "mainImage",
       type: "image",
@@ -40,6 +37,37 @@ export const fragranceType = defineType({
           title: "Alternative text",
         },
       ],
+    }),
+    defineField({
+      name: "linkImage",
+      type: "image",
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+        },
+      ],
+    }),
+    defineField({
+      name: "courseImage",
+      type: "image",
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+        },
+      ],
+    }),
+    defineField({
+      name: "courseText",
+      type: "blockContent",
+    }),
+    defineField({
+      name: "intro",
+      title: "Quote",
+      type: "blockContent",
     }),
     defineField({
       name: "videoFile",
@@ -56,6 +84,7 @@ export const fragranceType = defineType({
     }),
     defineField({
       name: "info",
+      title: "Tasting Notes",
       type: "blockContent",
     }),
     defineField({

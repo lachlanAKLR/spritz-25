@@ -8,6 +8,7 @@ import FragranceContent from "@/app/components/FragranceContent";
 import FragranceProduct from "@/app/components/FragranceProduct";
 import FragranceNext from "@/app/components/FragranceNext";
 import { Reveal } from "@/app/components/Reveal";
+import FragranceTextImage from "@/app/components/FragranceTextImage";
 
 export async function generateStaticParams() {
   const fragrances = await client.fetch(FRAGRANCES_QUERY);
@@ -55,6 +56,9 @@ export default async function Page({
     <main>
       <Reveal>
         <FragranceHeader fragrance={fragrance} index={currentIndex} />
+      </Reveal>
+      <Reveal>
+        <FragranceTextImage fragrance={fragrance} />
       </Reveal>
       <Reveal>
         <FragranceIntro fragrance={fragrance} />

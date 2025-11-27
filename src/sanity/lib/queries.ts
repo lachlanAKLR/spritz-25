@@ -57,6 +57,24 @@ export const FRAGRANCE_QUERY = defineQuery(`
       }
     },
 
+    linkImage{
+      alt,
+      asset->{
+        _id,
+        url,
+        metadata { dimensions { width, height, aspectRatio } }
+      }
+    },
+
+    courseImage{
+      alt,
+      asset->{
+        _id,
+        url,
+        metadata { dimensions { width, height, aspectRatio } }
+      }
+    },
+
     videoFile{
       asset->{
         _id,
@@ -73,6 +91,7 @@ export const FRAGRANCE_QUERY = defineQuery(`
       }
     },
 
+    courseText,
     intro,
     info,
     productText,
@@ -108,6 +127,15 @@ export const FRAGRANCES_QUERY = defineQuery(`
         url,
         metadata { dimensions { width, height, aspectRatio } }
       }
-    }
+    },
+
+    courseImage{
+      alt,
+      asset->{
+        _id,
+        url,
+        metadata { dimensions { width, height, aspectRatio } }
+      }
+    },
   }
 `);

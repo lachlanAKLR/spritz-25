@@ -23,7 +23,6 @@ export type FragranceType = {
   title?: string;
   brand?: string;
   slug?: Slug;
-  intro?: BlockContent;
   mainImage?: {
     asset?: {
       _ref: string;
@@ -37,6 +36,34 @@ export type FragranceType = {
     alt?: string;
     _type: "image";
   };
+  linkImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  courseImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  courseText?: BlockContent;
+  intro?: BlockContent;
   videoFile?: {
     asset?: {
       _ref: string;
@@ -447,7 +474,7 @@ export type HOME_QUERYResult = {
   > | null;
 } | null;
 // Variable: FRAGRANCE_QUERY
-// Query: *[_type == "fragranceType" && slug.current == $slug][0]{    _id,    title,    brand,    course,    slug,    orderRank,    mainImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    videoFile{      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    posterImage{      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    intro,    info,    productText,    bottomText,    products[]{      _key,      size,      link,      image{        alt,        asset->{          _id,          url,          metadata { dimensions { width, height, aspectRatio } }        }      }    }  }
+// Query: *[_type == "fragranceType" && slug.current == $slug][0]{    _id,    title,    brand,    course,    slug,    orderRank,    mainImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    linkImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    courseImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    videoFile{      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    posterImage{      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    courseText,    intro,    info,    productText,    bottomText,    products[]{      _key,      size,      link,      image{        alt,        asset->{          _id,          url,          metadata { dimensions { width, height, aspectRatio } }        }      }    }  }
 export type FRAGRANCE_QUERYResult = {
   _id: string;
   title: string | null;
@@ -456,6 +483,34 @@ export type FRAGRANCE_QUERYResult = {
   slug: Slug | null;
   orderRank: string | null;
   mainImage: {
+    alt: string | null;
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        dimensions: {
+          width: number | null;
+          height: number | null;
+          aspectRatio: number | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+  linkImage: {
+    alt: string | null;
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        dimensions: {
+          width: number | null;
+          height: number | null;
+          aspectRatio: number | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+  courseImage: {
     alt: string | null;
     asset: {
       _id: string;
@@ -489,6 +544,7 @@ export type FRAGRANCE_QUERYResult = {
       } | null;
     } | null;
   } | null;
+  courseText: BlockContent | null;
   intro: BlockContent | null;
   info: BlockContent | null;
   productText: BlockContent | null;
@@ -514,7 +570,7 @@ export type FRAGRANCE_QUERYResult = {
   }> | null;
 } | null;
 // Variable: FRAGRANCES_QUERY
-// Query: *[_type == "fragranceType" && defined(slug.current)] | order(orderRank) {    _id,    title,    brand,    course,    slug,    mainImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    }  }
+// Query: *[_type == "fragranceType" && defined(slug.current)] | order(orderRank) {    _id,    title,    brand,    course,    slug,    mainImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    courseImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },  }
 export type FRAGRANCES_QUERYResult = Array<{
   _id: string;
   title: string | null;
@@ -535,6 +591,20 @@ export type FRAGRANCES_QUERYResult = Array<{
       } | null;
     } | null;
   } | null;
+  courseImage: {
+    alt: string | null;
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        dimensions: {
+          width: number | null;
+          height: number | null;
+          aspectRatio: number | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
 }>;
 
 // Query TypeMap
@@ -542,7 +612,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '\n  *[_type == "home"][0]{\n    _id,\n    pageBuilder[]{\n      _type == "headingText" => {\n        _type,\n        heading,\n        image{\n          alt,\n          asset->\n        }\n      },\n\n      _type == "imageBlock" => {\n        _type,\n        image{\n          alt,\n          asset->\n        },\n        text\n      },\n\n      _type == "textImageBlock" => {\n        _type,\n        heading,\n        image{\n          alt,\n          asset->\n        },\n        ctaBlock[]{\n          text,\n          link\n        },\n        imageLeft\n      }\n    }\n  }\n': HOME_QUERYResult;
-    '\n  *[_type == "fragranceType" && slug.current == $slug][0]{\n    _id,\n    title,\n    brand,\n    course,\n    slug,\n    orderRank,\n\n    mainImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    videoFile{\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    posterImage{\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    intro,\n    info,\n    productText,\n    bottomText,\n\n    products[]{\n      _key,\n      size,\n      link,\n      image{\n        alt,\n        asset->{\n          _id,\n          url,\n          metadata { dimensions { width, height, aspectRatio } }\n        }\n      }\n    }\n  }\n': FRAGRANCE_QUERYResult;
-    '\n  *[_type == "fragranceType" && defined(slug.current)] | order(orderRank) {\n    _id,\n    title,\n    brand,\n    course,\n    slug,\n    mainImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    }\n  }\n': FRAGRANCES_QUERYResult;
+    '\n  *[_type == "fragranceType" && slug.current == $slug][0]{\n    _id,\n    title,\n    brand,\n    course,\n    slug,\n    orderRank,\n\n    mainImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    linkImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    courseImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    videoFile{\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    posterImage{\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    courseText,\n    intro,\n    info,\n    productText,\n    bottomText,\n\n    products[]{\n      _key,\n      size,\n      link,\n      image{\n        alt,\n        asset->{\n          _id,\n          url,\n          metadata { dimensions { width, height, aspectRatio } }\n        }\n      }\n    }\n  }\n': FRAGRANCE_QUERYResult;
+    '\n  *[_type == "fragranceType" && defined(slug.current)] | order(orderRank) {\n    _id,\n    title,\n    brand,\n    course,\n    slug,\n    mainImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    courseImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n  }\n': FRAGRANCES_QUERYResult;
   }
 }
