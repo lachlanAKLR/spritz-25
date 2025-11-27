@@ -15,7 +15,7 @@ export default function SectionHeadingText({
   block: PageBuilderProps["pageBuilder"][number];
 }) {
   return (
-    <div className="relative h-fit p-3 pt-5 md:pt-5">
+    <div className="relative h-fit p-3 px-3 pb-2.5 md:p-5 md:pb-2.5">
       {block.image ? (
         <FadeInImage
           src={builder

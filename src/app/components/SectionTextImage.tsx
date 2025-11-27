@@ -18,7 +18,7 @@ export default function SectionTextImage({
 }) {
   return (
     <div
-      className={`${block.imageLeft ? "flex-col-reverse md:flex-row-reverse" : "flex-col-reverse md:flex-row"} flex gap-5 p-2.5`}
+      className={`${block.imageLeft ? "flex-col-reverse md:flex-row-reverse" : "flex-col-reverse md:flex-row"} flex gap-5 px-3 py-2.5 md:px-5`}
     >
       <div className="flex w-full flex-col items-center justify-center md:w-1/2">
         <div className="relative w-full">
@@ -27,17 +27,23 @@ export default function SectionTextImage({
             alt="Background Box"
             width={500}
             height={80}
-            className="w-full"
+            className="hidden w-full md:block"
           />
-
-          <div className="absolute inset-0 flex items-center justify-center text-center">
-            <div className="px-5 py-10 sm:px-10 md:px-12 lg:px-16 xl:px-32">
+          <Image
+            src="/Background_Item_Mobile_001.svg"
+            alt="Background Box"
+            width={500}
+            height={80}
+            className="block w-full md:hidden"
+          />
+          <div className="absolute inset-0 mb-0 flex items-center justify-center overflow-scroll text-center sm:mb-10 sm:items-start md:mb-0 md:items-start lg:items-center">
+            <div className="px-5 py-10 sm:px-10 md:px-8 lg:px-8 xl:px-24">
               <PortableText
                 value={block.heading}
                 components={portableTextComponents}
               />
               {block?.ctaBlock ? (
-                <div className="flex flex-col items-center justify-center gap-3 pt-5 md:gap-5">
+                <div className="flex flex-col items-center justify-start gap-3 pt-5 md:gap-5">
                   {block?.ctaBlock.map(
                     //@ts-expect-error: error
                     (item) => (
