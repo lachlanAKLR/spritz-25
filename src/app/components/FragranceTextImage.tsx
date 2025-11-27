@@ -16,9 +16,7 @@ export default function SectionTextImage({
   fragrance: PageBuilderProps["pageBuilder"][number];
 }) {
   return (
-    <div
-      className={`flex flex-col-reverse gap-5 p-3 pt-0 md:flex-row-reverse md:p-5`}
-    >
+    <div className={`flex flex-col gap-5 p-3 pt-0 md:flex-row-reverse md:p-5`}>
       <div className="flex w-full flex-col items-center justify-center md:w-1/2">
         <div className="relative w-full">
           <Image
