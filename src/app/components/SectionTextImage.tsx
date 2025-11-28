@@ -52,6 +52,7 @@ export default function SectionTextImage({
                       <Link
                         key={item.link}
                         href={item.link}
+                        target="_blank"
                         className="group relative block w-fit"
                       >
                         <Image

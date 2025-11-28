@@ -27,13 +27,13 @@ export default function SectionHeadingText({
           width={1000}
           height={2000}
           alt={block?.image?.alt ?? ""}
-          className="aspect-[1/1] w-full object-cover md:aspect-[auto]"
+          className="border-bronze-1 aspect-[1/1] w-full border-2 object-cover md:aspect-[auto]"
         />
       ) : null}
 
       {block?.text ? (
         <div className="absolute inset-0 flex items-center justify-center p-10 text-center md:absolute md:top-0 md:p-10">
-          <div className="bg-brown-1 border-bronze-1 text-bronze-1 h-fit w-fit border-2 p-5 md:border-5">
+          <div className="bg-brown-1 border-bronze-1 text-bronze-1 h-fit w-fit border-2 p-5 md:border-2">
             <PortableText
               value={block.text}
               components={portableTextComponents}
