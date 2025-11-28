@@ -74,7 +74,7 @@ export default function FragranceProduct({
                     <Link //@ts-expect-error: error
                       href={product?.link}
                       target="_blank"
-                      className="border-bronze-1 hover:bg-bronze-1 hover:text-brown-1 text-bronze-1 flex w-1/3 cursor-pointer flex-col items-center justify-center border-r-2 border-b-2 p-2 text-center transition-all duration-500 ease-in-out"
+                      className="border-bronze-1 hover:bg-bronze-1 hover:text-brown-1 text-bronze-1 flex w-1/3 cursor-pointer flex-col items-center justify-center border-r-2 border-b-2 p-2 text-center transition-colors duration-500 ease-in-out"
                     >
                       <p className="font-egyptian text-sm uppercase md:text-base">
                         Buy Now

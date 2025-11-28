@@ -61,7 +61,7 @@ export default function Nav({
               alt="Lore Perfumery Logo"
               width={80}
               height={80}
-              className={`${open ? "rotate-90" : "rotate-0"} w-3.5 transition-all duration-1000 ease-in-out`}
+              className={`${open ? "rotate-90" : "rotate-0"} w-3.5 transition-transform duration-1000 ease-in-out`}
               onClick={handleClick}
             />
           </button>
@@ -70,7 +70,7 @@ export default function Nav({
 
       <nav>
         <div
-          className={`${open ? "right-0" : "-right-full"} bg-brown-1 border-bronze-1 fixed z-30 flex h-dvh w-full flex-col items-center justify-between gap-8 overflow-scroll border-l-0 pt-20 pb-5 transition-all duration-700 ease-in-out md:w-96 md:border-l-2`}
+          className={`${open ? "right-0" : "-right-full"} bg-brown-1 border-bronze-1 fixed z-30 flex h-dvh w-full flex-col items-center justify-between gap-8 overflow-scroll border-l-0 pt-20 pb-5 transition-normal duration-1000 ease-in-out md:w-96 md:border-l-2`}
         >
           <div className="flex flex-col gap-4">
             <Link

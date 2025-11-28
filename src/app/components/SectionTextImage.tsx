@@ -119,7 +119,7 @@ export default function SectionTextImage({
                         </button>
 
                         <div
-                          className={`${open ? "opcaity-100 pointer-events-auto" : "pointer-events-none opacity-0"} bg-brown-1/90 fixed top-0 left-0 z-100 flex h-screen w-full items-center justify-center transition-all duration-500`}
+                          className={`${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"} fixed top-0 left-0 z-100 flex h-screen w-full items-center justify-center bg-black/90 transition-opacity duration-500`}
                         >
                           {item?.video?.asset?.url && (
                             <div className="h-3/4 w-fit">
