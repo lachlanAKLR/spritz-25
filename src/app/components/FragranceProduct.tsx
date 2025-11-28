@@ -62,7 +62,7 @@ export default function FragranceProduct({
                       width={1000}
                       height={2000}
                       alt={product?.image?.alt ?? ""}
-                      className="border-bronze-1 w-full border-2"
+                      className="border-bronze-1 aspect-square w-full border-2 object-cover"
                     />
                   ) : null}
                   <div className="flex">

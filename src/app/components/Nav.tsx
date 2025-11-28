@@ -69,7 +69,7 @@ export default function Nav({
 
       <nav>
         <div
-          className={`${open ? "right-0" : "-right-full"} bg-brown-1 border-bronze-1 fixed z-30 flex min-h-screen w-full flex-col items-center justify-between border-l-0 pt-20 pb-5 transition-all duration-700 ease-in-out md:w-96 md:border-l-2`}
+          className={`${open ? "right-0" : "-right-full"} bg-brown-1 border-bronze-1 fixed z-30 flex h-dvh w-full flex-col items-center justify-between gap-8 overflow-scroll border-l-0 pt-20 pb-5 transition-all duration-700 ease-in-out md:w-96 md:border-l-2`}
         >
           <div className="flex flex-col gap-4">
             <Link
