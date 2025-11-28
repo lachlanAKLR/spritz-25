@@ -34,8 +34,8 @@ export default function SectionTextImage({
             className="block w-full md:hidden"
           />
 
-          <div className="absolute inset-0 flex items-center justify-center text-center">
-            <div className="px-5 py-10 sm:px-10 md:px-12 lg:px-16 xl:px-32">
+          <div className="absolute inset-0 mb-0 flex items-center justify-center overflow-scroll text-center sm:mb-10 sm:items-start md:mb-0 md:items-start lg:items-start xl:items-center">
+            <div className="px-5 py-10 sm:px-10 md:px-8 lg:px-8 xl:px-24">
               <PortableText
                 value={fragrance.courseText}
                 components={portableTextComponents}

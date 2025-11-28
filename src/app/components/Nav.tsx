@@ -62,6 +62,7 @@ export default function Nav({
               width={80}
               height={80}
               className={`${open ? "rotate-90" : "rotate-0"} w-3.5 transition-all duration-1000 ease-in-out`}
+              onClick={handleClick}
             />
           </button>
         </div>

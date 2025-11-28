@@ -43,10 +43,19 @@ export default defineType({
               title: "CTA Link",
               type: "string",
             },
+            {
+              name: "video",
+              title: "Video File",
+              type: "file",
+              options: {
+                accept: "video/mp4,video/webm,video/ogg,video/quicktime",
+              },
+            },
           ],
         },
       ],
     }),
+
     defineField({
       name: "imageLeft",
       title: "Position Image Left (Default Right)",

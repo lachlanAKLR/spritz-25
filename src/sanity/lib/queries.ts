@@ -31,7 +31,16 @@ export const HOME_QUERY = defineQuery(`
         },
         ctaBlock[]{
           text,
-          link
+          link,
+          video{
+            asset->{
+              _id,
+              url,
+              mimeType,
+              extension,
+              size
+            }
+          }
         },
         imageLeft
       }
