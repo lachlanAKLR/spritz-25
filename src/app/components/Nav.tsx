@@ -38,7 +38,7 @@ export default function Nav({
     <>
       <nav>
         <div
-          className={`${isSolid ? "bg-brown-1 border-bronze-1 border-b-2" : "border-brown-1"} fixed top-0 left-0 z-50 flex w-full items-center justify-between p-3 transition-colors duration-300 ease-in-out md:p-5`}
+          className={`${isSolid ? "bg-brown-1 border-bronze-1 border-b-2" : "border-brown-1"} fixed top-0 left-0 z-50 flex w-full items-center justify-between p-4 transition-colors duration-300 ease-in-out md:p-5`}
         >
           <Link href="/">
             <Image

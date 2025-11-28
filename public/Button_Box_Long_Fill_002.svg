@@ -1,3 +1,12 @@
-<svg width="1167" height="149" viewBox="0 0 1167 149" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1091.63 148H75.2011C46.4103 119.32 30.2681 103.24 1.41699 74.5C30.2079 45.82 46.35 29.74 75.2011 1H1091.63C1120.42 29.68 1136.57 45.76 1165.42 74.5C1136.63 103.18 1120.48 119.26 1091.63 148Z" fill="#AE6728" stroke="#AE6728" stroke-width="2" stroke-miterlimit="16"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1167 149">
+  <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #393636;
+      }
+    </style>
+  </defs>
+  <path class="st0" d="M1091.6,148H75.2C46.4,119.3,30.3,103.2,1.4,74.5,30.2,45.8,46.3,29.7,75.2,1h1016.4c28.8,28.7,44.9,44.8,73.8,73.5-28.8,28.7-44.9,44.8-73.8,73.5Z" vector-effect="non-scaling-stroke"/>
 </svg>

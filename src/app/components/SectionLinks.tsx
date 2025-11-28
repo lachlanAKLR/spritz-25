@@ -31,14 +31,14 @@ export default function SectionLinks({
                   alt="Button Box"
                   width={500}
                   height={80}
-                  className={`${!isLastItem ? "block" : "hidden"} w-full`}
+                  className={`${!isLastItem ? "block" : "block md:hidden"} w-full`}
                 />
                 <Image
                   src="/Button_Box_Long_002.svg"
                   alt="Button Box"
                   width={500}
                   height={80}
-                  className={`${isLastItem ? "block" : "hidden"} z-100 w-full`}
+                  className={`${isLastItem ? "hidden md:block" : "hidden"} z-100 w-full`}
                 />
                 <div className="font-egyptian absolute inset-0 flex flex-col items-center justify-center uppercase">
                   <p className="text-sm md:text-base">{toOrdinal(index + 1)}</p>
