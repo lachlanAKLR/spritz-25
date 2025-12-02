@@ -87,7 +87,7 @@ export default function SectionTextImage({
                   )}
                 </div>
               ) : null}
-              {block?.ctaBlock?.[0]?.video?.asset ? (
+              {block?.ctaBlock?.[0]?.cloudUrl ? (
                 <div className="flex flex-col items-center justify-start gap-3 pt-5 md:gap-5">
                   {block?.ctaBlock.map(
                     //@ts-expect-error: error
