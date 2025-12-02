@@ -56,6 +56,11 @@ export default function Footer() {
           to honour that as we engage in storytelling on the lands of the Kulin
           Nation.
         </p>
+        <Link href="https://www.aklr.xyz/" target="_blank">
+          <p className="font-alpina-typewriter pt-4 text-center text-xs uppercase underline">
+            Site by AKLR
+          </p>
+        </Link>
       </div>
       <div className="border-t-bronze-1 w-full border-t-2 pt-12">
         <Image
