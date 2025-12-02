@@ -22,6 +22,7 @@ export const structure: StructureResolver = (S, context) =>
 
       ...S.documentTypeListItems().filter(
         (item) =>
-          item.getId() && !["home", "fragranceType"].includes(item.getId()!),
+          item.getId() &&
+          !["home", "fragranceType", "media.tag"].includes(item.getId()!),
       ),
     ]);
