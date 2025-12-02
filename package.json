@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@next/third-parties": "^16.0.3",
+    "@next/third-parties": "^16.0.6",
     "@sanity/image-url": "^1.2.0",
     "@sanity/orderable-document-list": "^1.4.0",
     "@sanity/vision": "^4.15.0",

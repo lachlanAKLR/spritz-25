@@ -12,6 +12,7 @@ import Nav from "./components/Nav";
 import { FRAGRANCES_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
 import { Reveal } from "./components/Reveal";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Spritzmas™ 2025 — Lore Perfumery",
@@ -28,6 +29,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-P36GJ6CFYG" />
+
       <body
         className={`text-bronze-1 bg-brown-1 antialiased ${egyptian.variable} ${alpinaThin.variable} ${alpinaIta.variable} ${alpinaTyp.variable}`}
       >
