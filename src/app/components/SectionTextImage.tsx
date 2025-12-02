@@ -121,7 +121,16 @@ export default function SectionTextImage({
                         <div
                           className={`${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"} fixed top-0 left-0 z-100 flex h-screen w-full items-center justify-center bg-black/90 transition-opacity duration-500`}
                         >
-                          {item?.video?.asset?.url && (
+                          {item?.cloudUrl ? (
+                            <div className="h-3/4 w-fit">
+                              <iframe
+                                src={item.cloudUrl}
+                                allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
+                                allowFullScreen
+                                className="aspect-9/16 h-full w-full"
+                              />
+                            </div>
+                          ) : item?.video?.asset?.url ? (
                             <div className="h-3/4 w-fit">
                               <video
                                 src={item.video.asset.url}
@@ -129,7 +138,7 @@ export default function SectionTextImage({
                                 className="aspect-9/16 h-full w-full object-cover"
                               />
                             </div>
-                          )}
+                          ) : null}
 
                           <button
                             onClick={handleClick}

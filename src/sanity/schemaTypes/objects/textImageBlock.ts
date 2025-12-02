@@ -51,6 +51,11 @@ export default defineType({
                 accept: "video/mp4,video/webm,video/ogg,video/quicktime",
               },
             },
+            {
+              name: "cloudUrl",
+              title: "Cloudflare Stream URL",
+              type: "url",
+            },
           ],
         },
       ],

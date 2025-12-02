@@ -78,6 +78,11 @@ export const fragranceType = defineType({
       },
     }),
     defineField({
+      name: "cloudUrl",
+      title: "Cloudflare Stream URL",
+      type: "url",
+    }),
+    defineField({
       name: "posterImage",
       title: "Poster Image",
       type: "image",

@@ -11,7 +11,16 @@ export default function FragranceContent({
     <section>
       <div className="flex flex-col gap-5 p-3 md:flex-row md:p-5">
         <div className="w-full md:w-1/3">
-          {fragrance?.videoFile?.asset?.url && (
+          {fragrance?.cloudUrl ? (
+            <div className="">
+              <iframe
+                src={fragrance.cloudUrl}
+                allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+                className="aspect-9/16 w-full"
+              />
+            </div>
+          ) : fragrance?.videoFile?.asset?.url ? (
             <div className="w-fit">
               <video
                 src={fragrance.videoFile.asset.url}
@@ -19,7 +28,7 @@ export default function FragranceContent({
                 className="aspect-9/16 w-full object-cover"
               />
             </div>
-          )}
+          ) : null}
         </div>
         <div className="border-bronze-1 flex w-full flex-col items-center justify-center border-2 px-5 py-10 text-center sm:px-10 md:w-2/3 md:px-20 lg:px-32 xl:px-40">
           {fragrance?.info && (

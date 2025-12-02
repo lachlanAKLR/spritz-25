@@ -74,6 +74,7 @@ export type FragranceType = {
     media?: unknown;
     _type: "file";
   };
+  cloudUrl?: string;
   posterImage?: {
     asset?: {
       _ref: string;
@@ -197,6 +198,17 @@ export type TextImageBlock = {
   ctaBlock?: Array<{
     text?: string;
     link?: string;
+    video?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+      };
+      media?: unknown;
+      _type: "file";
+    };
+    cloudUrl?: string;
     _key: string;
   }>;
   imageLeft?: boolean;
@@ -375,7 +387,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: HOME_QUERY
-// Query: *[_type == "home"][0]{    _id,    pageBuilder[]{      _type == "headingText" => {        _type,        heading,        image{          alt,          asset->        }      },      _type == "imageBlock" => {        _type,        image{          alt,          asset->        },        text      },      _type == "textImageBlock" => {        _type,        heading,        image{          alt,          asset->        },        ctaBlock[]{          text,          link        },        imageLeft      }    }  }
+// Query: *[_type == "home"][0]{    _id,    pageBuilder[]{      _type == "headingText" => {        _type,        heading,        image{          alt,          asset->        }      },      _type == "imageBlock" => {        _type,        image{          alt,          asset->        },        text      },      _type == "textImageBlock" => {        _type,        heading,        image{          alt,          asset->        },        ctaBlock[]{          text,          link,          cloudUrl,          video{            asset->{              _id,              url,              mimeType,              extension,              size            }          }        },        imageLeft      }    }  }
 export type HOME_QUERYResult = {
   _id: string;
   pageBuilder: Array<
@@ -468,13 +480,23 @@ export type HOME_QUERYResult = {
         ctaBlock: Array<{
           text: string | null;
           link: string | null;
+          cloudUrl: string | null;
+          video: {
+            asset: {
+              _id: string;
+              url: string | null;
+              mimeType: string | null;
+              extension: string | null;
+              size: number | null;
+            } | null;
+          } | null;
         }> | null;
         imageLeft: boolean | null;
       }
   > | null;
 } | null;
 // Variable: FRAGRANCE_QUERY
-// Query: *[_type == "fragranceType" && slug.current == $slug][0]{    _id,    title,    brand,    course,    slug,    orderRank,    mainImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    linkImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    courseImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    videoFile{      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    posterImage{      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    courseText,    intro,    info,    productText,    bottomText,    products[]{      _key,      size,      link,      image{        alt,        asset->{          _id,          url,          metadata { dimensions { width, height, aspectRatio } }        }      }    }  }
+// Query: *[_type == "fragranceType" && slug.current == $slug][0]{    _id,    title,    brand,    course,    slug,    orderRank,    cloudUrl,    mainImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    linkImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    courseImage{      alt,      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    videoFile{      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    posterImage{      asset->{        _id,        url,        metadata { dimensions { width, height, aspectRatio } }      }    },    courseText,    intro,    info,    productText,    bottomText,    products[]{      _key,      size,      link,      image{        alt,        asset->{          _id,          url,          metadata { dimensions { width, height, aspectRatio } }        }      }    }  }
 export type FRAGRANCE_QUERYResult = {
   _id: string;
   title: string | null;
@@ -482,6 +504,7 @@ export type FRAGRANCE_QUERYResult = {
   course: string | null;
   slug: Slug | null;
   orderRank: string | null;
+  cloudUrl: string | null;
   mainImage: {
     alt: string | null;
     asset: {
@@ -611,8 +634,8 @@ export type FRAGRANCES_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '\n  *[_type == "home"][0]{\n    _id,\n    pageBuilder[]{\n      _type == "headingText" => {\n        _type,\n        heading,\n        image{\n          alt,\n          asset->\n        }\n      },\n\n      _type == "imageBlock" => {\n        _type,\n        image{\n          alt,\n          asset->\n        },\n        text\n      },\n\n      _type == "textImageBlock" => {\n        _type,\n        heading,\n        image{\n          alt,\n          asset->\n        },\n        ctaBlock[]{\n          text,\n          link\n        },\n        imageLeft\n      }\n    }\n  }\n': HOME_QUERYResult;
-    '\n  *[_type == "fragranceType" && slug.current == $slug][0]{\n    _id,\n    title,\n    brand,\n    course,\n    slug,\n    orderRank,\n\n    mainImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    linkImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    courseImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    videoFile{\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    posterImage{\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    courseText,\n    intro,\n    info,\n    productText,\n    bottomText,\n\n    products[]{\n      _key,\n      size,\n      link,\n      image{\n        alt,\n        asset->{\n          _id,\n          url,\n          metadata { dimensions { width, height, aspectRatio } }\n        }\n      }\n    }\n  }\n': FRAGRANCE_QUERYResult;
+    '\n  *[_type == "home"][0]{\n    _id,\n    pageBuilder[]{\n      _type == "headingText" => {\n        _type,\n        heading,\n        image{\n          alt,\n          asset->\n        }\n      },\n\n      _type == "imageBlock" => {\n        _type,\n        image{\n          alt,\n          asset->\n        },\n        text\n      },\n\n      _type == "textImageBlock" => {\n        _type,\n        heading,\n        image{\n          alt,\n          asset->\n        },\n        ctaBlock[]{\n          text,\n          link,\n          cloudUrl,\n          video{\n            asset->{\n              _id,\n              url,\n              mimeType,\n              extension,\n              size\n            }\n          }\n        },\n        imageLeft\n      }\n    }\n  }\n': HOME_QUERYResult;
+    '\n  *[_type == "fragranceType" && slug.current == $slug][0]{\n    _id,\n    title,\n    brand,\n    course,\n    slug,\n    orderRank,\n    cloudUrl,\n\n\n    mainImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    linkImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    courseImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    videoFile{\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    posterImage{\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    courseText,\n    intro,\n    info,\n    productText,\n    bottomText,\n\n    products[]{\n      _key,\n      size,\n      link,\n      image{\n        alt,\n        asset->{\n          _id,\n          url,\n          metadata { dimensions { width, height, aspectRatio } }\n        }\n      }\n    }\n  }\n': FRAGRANCE_QUERYResult;
     '\n  *[_type == "fragranceType" && defined(slug.current)] | order(orderRank) {\n    _id,\n    title,\n    brand,\n    course,\n    slug,\n    mainImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n\n    linkImage{\n      alt,\n      asset->{\n        _id,\n        url,\n        metadata { dimensions { width, height, aspectRatio } }\n      }\n    },\n  }\n': FRAGRANCES_QUERYResult;
   }
 }

@@ -32,6 +32,7 @@ export const HOME_QUERY = defineQuery(`
         ctaBlock[]{
           text,
           link,
+          cloudUrl,
           video{
             asset->{
               _id,
@@ -56,6 +57,8 @@ export const FRAGRANCE_QUERY = defineQuery(`
     course,
     slug,
     orderRank,
+    cloudUrl,
+
 
     mainImage{
       alt,
